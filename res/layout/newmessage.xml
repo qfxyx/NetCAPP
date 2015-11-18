@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/information_logo" >
+
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:background="#01586a"
+            android:text="返  回"
+            android:textColor="#ffffffff" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/message_refresh_progress"
+        style="@android:attr/protectionLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="30dp" />
+
+    <EditText
+        android:id="@+id/edt_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:hint="标题" />
+
+    <EditText
+        android:id="@+id/edt_cont"
+        android:layout_width="fill_parent"
+        android:layout_height="90dip"
+        android:layout_below="@+id/edt_title"
+        android:gravity="top"
+        android:hint="消息正文"
+        android:textSize="15dip" >
+    </EditText>
+
+    <Button
+        android:id="@+id/bt_send"
+        android:layout_width="60dip"
+        android:layout_height="38dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edt_cont"
+        android:layout_marginLeft="20dp"
+        android:background="#01586a"
+        android:text="发送"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/bt_my_send"
+        android:layout_width="60dip"
+        android:layout_height="38dip"
+        android:layout_alignBaseline="@+id/bt_send"
+        android:layout_alignBottom="@+id/bt_send"
+        android:layout_marginLeft="13dp"
+        android:layout_toRightOf="@+id/bt_send"
+        android:background="#01586a"
+        android:text="本组发送"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/bt_my_all_send"
+        android:layout_width="60dip"
+        android:layout_height="38dip"
+        android:layout_alignBaseline="@+id/bt_my_send"
+        android:layout_alignBottom="@+id/bt_my_send"
+        android:layout_marginLeft="13dp"
+        android:layout_toRightOf="@+id/bt_my_send"
+        android:background="#01586a"
+        android:text="全体发送"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/bt_empty"
+        android:layout_width="60dip"
+        android:layout_height="38dip"
+        android:layout_alignBaseline="@+id/bt_my_all_send"
+        android:layout_alignBottom="@+id/bt_my_all_send"
+        android:layout_marginLeft="13dp"
+        android:layout_toRightOf="@+id/bt_my_all_send"
+        android:background="#01586a"
+        android:text="清空"
+        android:textColor="@color/white" />
+
+    <com.example.jinanuniversity.view.PullToRefreshListView
+        android:id="@+id/listView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/bt_send"
+        android:layout_marginTop="10dip"
+        android:visibility="gone" >
+    </com.example.jinanuniversity.view.PullToRefreshListView>
+
+    <ExpandableListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/bt_send"
+        android:layout_marginTop="10dip"
+        android:cacheColorHint="#00000000" />
+
+</RelativeLayout>

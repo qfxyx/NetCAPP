@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout 
+	android:orientation="vertical" 
+	android:id="@+id/info_qzone_mail" 
+	android:background="@drawable/shape_bg" 
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content" 
+	android:layout_marginLeft="10.0dip" 
+	android:layout_marginTop="10.0dip" 
+	android:layout_marginRight="10.0dip"
+  	xmlns:android="http://schemas.android.com/apk/res/android">
+  	
+    <LinearLayout 
+    android:gravity="center_vertical" 
+    android:orientation="horizontal" 
+    android:id="@+id/qzone" 
+    android:layout_width="fill_parent" 
+    android:layout_height="50.0dip">
+
+        <CheckBox
+            android:id="@+id/phone_shock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="震  动" />
+        
+    </LinearLayout>
+    
+    <View
+    android:background="@drawable/shape_line" 
+    android:layout_width="fill_parent" 
+    android:layout_height="1.0px" />
+    
+    <LinearLayout 
+    android:id="@+id/chat"
+    android:gravity="center_vertical" 
+    android:orientation="horizontal" 
+    android:clickable="true" 
+    android:layout_width="fill_parent" 
+    android:layout_height="50.0dip">
+
+        <CheckBox
+            android:id="@+id/phone_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="顶  部" />
+
+   </LinearLayout> 
+   
+        <View
+    android:background="@drawable/shape_line" 
+    android:layout_width="fill_parent" 
+    android:layout_height="1.0px" />
+   
+  <LinearLayout 
+    android:gravity="center_vertical" 
+    android:orientation="horizontal" 
+    android:clickable="true" 
+    android:layout_width="fill_parent" 
+    android:layout_height="50.0dip">
+
+        <CheckBox
+            android:id="@+id/phone_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:text="声  音" />
+
+   </LinearLayout> 
+        
+</LinearLayout>
+

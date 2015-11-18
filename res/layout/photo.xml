@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/information_logo" >
+
+        <TextView
+            android:id="@+id/tx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="图片库"
+            android:textSize="20dip" />
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="#01586a"
+            android:text="返  回"
+            android:textColor="#ffffffff" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txt_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:text="图书馆"
+            android:textSize="20dip" />
+
+        <ImageView
+            android:id="@+id/img_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/txt_address"
+            android:background="@drawable/xiala" />
+
+        <!--
+        <Spinner
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp" />
+
+        <EditText
+            android:id="@+id/edit_one"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/address"
+            android:maxWidth="100dp" />
+
+        <EditText
+            android:id="@+id/edit_two"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/edit_one"
+            android:maxWidth="100dp" />
+        -->
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="70dip"
+        android:layout_height="50dip"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="#01586a"
+        android:text="搜  索"
+        android:textColor="#ffffffff"
+        android:textSize="18dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/btn_search"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black" />
+
+    <Button
+        android:id="@+id/btn_office"
+        android:layout_width="70dip"
+        android:layout_height="50dip"
+        android:layout_below="@+id/btn_search"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="30dp"
+        android:background="#01586a"
+        android:text="办公楼"
+        android:textColor="#ffffffff"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_science"
+        android:layout_width="70dip"
+        android:layout_height="50dip"
+        android:layout_alignBottom="@+id/btn_office"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/btn_office"
+        android:background="#01586a"
+        android:text="科学楼"
+        android:textColor="#ffffffff"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/information_logo" >
+
+        <TextView
+            android:id="@+id/tx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="消  单"
+            android:textSize="20dip" />
+
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="#01586a"
+            android:text="返  回"
+            android:textColor="#ffffffff" />
+    </RelativeLayout>
+
+  <!--   <EditText
+        android:id="@+id/et_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="原因" >
+
+        <requestFocus />
+    </EditText>
+
+    <ImageView
+        android:id="@+id/img_reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/et_reason"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="33dip"
+        android:src="@drawable/xiala" />
+
+    <EditText
+        android:id="@+id/et_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_reason"
+        android:layout_below="@+id/et_reason"
+        android:layout_marginTop="22dp"
+        android:ems="10"
+        android:hint="结果" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/img_reason"
+        android:layout_below="@+id/et_reason"
+        android:layout_marginTop="33dip"
+        android:src="@drawable/xiala" />
+
+
+ -->
+
+    <RelativeLayout
+        android:id="@+id/parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="原因" />
+
+        <ImageView
+            android:id="@+id/img_reason"
+            android:layout_width="60dip"
+            android:layout_height="45dip"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/et_reason"
+            android:src="@drawable/xiala" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/parent_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" >
+
+        <EditText
+            android:id="@+id/et_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:editable="false"
+            android:hint="结果" >
+
+            <requestFocus />
+        </EditText>
+
+        <ImageView
+            android:id="@+id/img_result"
+            android:layout_width="60dip"
+            android:layout_height="45dip"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/et_result"
+            android:src="@drawable/xiala" />
+
+    </RelativeLayout>
+    
+    
+    <RelativeLayout
+        android:id="@+id/parent_means"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/parent_result"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+         >
+
+           <EditText
+               android:id="@+id/et_means"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true"
+               android:layout_centerHorizontal="true"
+               android:ems="10"
+               android:hint="方法" />
+
+           <ImageView
+               android:id="@+id/img_means"
+               android:layout_width="60dip"
+           	   android:layout_height="45dip"
+               android:layout_centerVertical="true"
+               android:layout_toRightOf="@+id/et_means"
+               android:src="@drawable/xiala" 
+               android:visibility="gone"
+               />
+
+    </RelativeLayout>
+
+        <Button
+            android:id="@+id/close_job"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="56dp"
+            android:background="@color/yello"
+            android:text="消单" />
+
+</RelativeLayout>

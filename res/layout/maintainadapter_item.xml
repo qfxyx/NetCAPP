@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tx_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="10dp"
+        android:text="用户："
+        android:textSize="15dip" />
+
+    <TextView
+        android:id="@+id/tx_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_user"
+        android:layout_below="@+id/tx_user"
+        android:layout_marginTop="10dp"
+        android:text="地址"
+        android:textSize="15dip" />
+
+    <TextView
+        android:id="@+id/tx_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_address"
+        android:layout_below="@+id/tx_address"
+        android:layout_marginTop="10dp"
+        android:text="下单时间"
+        android:textSize="15dip" />
+
+    <TextView
+        android:id="@+id/tx_session"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_time"
+        android:layout_below="@+id/tx_time"
+        android:layout_marginTop="10dp"
+        android:text="状态"
+        android:textSize="15dip" />
+
+     <TextView
+        android:id="@+id/tx_trblStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tx_session"
+        android:layout_below="@+id/tx_session"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dip"
+        android:text="故障描述"
+        android:textSize="15dip" />
+    
+    
+    <ImageView
+        android:id="@+id/img_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tx_address"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/img_details" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/tx_trblStatus"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/black" />
+
+</RelativeLayout>

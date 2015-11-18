@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10.0dip"
+    android:layout_marginRight="10.0dip"
+    android:layout_marginTop="10.0dip"
+    android:background="@drawable/shape_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="318dp"
+        android:layout_height="50dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/bt_hold"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="56dp"
+            android:background="#01586a"
+            android:text="保存"
+            android:textColor="#ffffffff" />
+
+        <Button
+            android:id="@+id/bt_default"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignBaseline="@+id/bt_hold"
+            android:layout_alignBottom="@+id/bt_hold"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="67dp"
+            android:background="#01586a"
+            android:text="默认"
+            android:textColor="#ffffffff" />
+    </RelativeLayout>
+</LinearLayout>

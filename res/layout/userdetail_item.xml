@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:id="@+id/linearLayout16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout15"
+        android:orientation="vertical" >
+        
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="18dip"
+        android:textSize="18dip"
+        android:text="用户详细信息" />
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout16"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/userId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="用户编号" />
+      
+      <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="用户姓名" />
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear1"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="等级" />
+      
+      <TextView
+        android:id="@+id/userFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="类型" />
+        
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linear3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear2"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/userAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="用户住址+房号" />
+        
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear3"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/userphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="电话号码" />
+        
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear4"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/officeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="单位" />
+        
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear5"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="邮箱" />
+        
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear6"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/servIp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="有网" />
+   
+      <TextView
+        android:id="@+id/servAbroad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="开网" />
+        
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear7"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/activeFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="是否到期" />
+ 
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear8"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/mac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="网卡" />
+ 
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear9"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="ip" />
+ 
+    </LinearLayout>
+    
+     <LinearLayout
+        android:id="@+id/linear11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear10"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/gateway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="网关" />
+ 
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear11"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/mask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="掩码" />
+ 
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear12"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/sam3Tempelate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="Sam3" />
+ 
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear13"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/openDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="有线开户" />
+ 
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear14"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/fromDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="有线起始" />
+ 
+    </LinearLayout>
+     <LinearLayout
+        android:id="@+id/linear16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linear15"
+        android:orientation="horizontal" >
+   
+      <TextView
+        android:id="@+id/toDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dip"
+        android:layout_marginTop="5dip"
+        android:text="有线结束" />
+ 
+    </LinearLayout>
+    
+
+</RelativeLayout>

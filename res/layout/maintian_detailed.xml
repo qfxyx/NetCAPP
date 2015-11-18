@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/information_logo" >
+
+        <TextView
+            android:id="@+id/tx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="维护单明细"
+            android:textSize="20dip" />
+
+        <Button
+            android:id="@+id/bt_list"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@color/blue"
+            android:text="列表"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/bt_tell"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignBottom="@+id/bt_list"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="18dp"
+            android:background="@color/blue"
+            android:text="呼叫用户"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/layout"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginBottom="15dp" />
+
+    <ProgressBar
+        android:id="@+id/message_refresh_progress"
+        style="@android:attr/protectionLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="30dp" />
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" >
+
+        <Button
+            android:id="@+id/bt_respond"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/blue"
+            android:text="响应"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/delayed"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/bt_respond"
+            android:background="@color/blue"
+            android:text="延时"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/bt_xiaodan"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/delayed"
+            android:background="@color/blue"
+            android:text="消单"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

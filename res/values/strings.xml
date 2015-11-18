@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">JiNanUniversity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">校园网维护</string>
+    <string name="pull_to_refresh_pull_label">下拉更新</string>
+    <string name="pull_to_refresh_release_label">释放更新</string>
+    <string name="pull_to_refresh_refreshing_label">载入中</string>
+    <string name="pull_to_refresh_tap_label">点我更新</string>
+    <string name="pull_to_refresh_btn">更多</string>
+   	<string name="pull_to_refresh_more">更新中</string>
+</resources>

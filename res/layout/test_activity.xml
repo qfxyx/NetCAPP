@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:id="@+id/account"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="account"/>
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="password"/>
+
+    <Button
+        android:text="Click Me"
+        android:id="@+id/test_buttton"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="50dp" />
+    <Button
+        android:text="Test Message"
+        android:id="@+id/test_message_buttton"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="50dp" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/useful_message_textview"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" />
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/return_message_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+</LinearLayout>

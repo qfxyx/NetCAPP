@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="group_scope">
+        <item>学生维护1组</item>
+        <item>学生维护2组</item>
+        <item>学生维护3组</item>
+        <item>学生维护4组</item>
+        <item>学生机动组</item>
+        <item>教工机动组</item>
+        <item>办公机动组</item>
+    </string-array>
+
+</resources>

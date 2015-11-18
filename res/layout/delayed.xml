@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/information_logo" >
+
+        <TextView
+            android:id="@+id/tx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="延  时"
+            android:textSize="20dip" />
+
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="#01586a"
+            android:text="返  回"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/et_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="延时原因" />
+
+        <ImageView
+            android:id="@+id/img_reason"
+            android:layout_width="60dip"
+            android:layout_height="45dip"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/et_reason"
+            android:src="@drawable/xiala" />
+
+    </RelativeLayout>
+    
+
+        <Button
+            android:id="@+id/bt_help"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="56dp"
+            android:background="@color/yello"
+            android:text="请求支援" />
+
+        <RelativeLayout
+            android:id="@+id/parent_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bt_help"
+            android:layout_alignLeft="@+id/parent"
+            android:layout_marginBottom="91dp" >
+
+            <EditText
+                android:id="@+id/et_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:hint="请求支援" />
+
+            <ImageView
+                android:id="@+id/img_help"
+                android:layout_width="60dip"
+                android:layout_height="45dip"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/et_help"
+                android:src="@drawable/xiala" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/delayed"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_above="@+id/parent_help"
+            android:layout_alignRight="@+id/bt_help"
+            android:layout_marginBottom="27dp"
+            android:background="@color/yello"
+            android:text="延 时" />
+
+</RelativeLayout>

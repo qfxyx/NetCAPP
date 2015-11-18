@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/information_logo" >
+
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="#01586a"
+            android:text="返  回"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/tx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="用户操作"
+            android:textSize="20dip" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/repeat_pwd"
+        android:layout_width="80dip"
+        android:layout_height="38dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativelayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#01586a"
+        android:text="重置密码"
+        android:textColor="#ffffffff" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/repeat_pwd"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black" />
+
+    <Button
+        android:id="@+id/repeat_mac"
+        android:layout_width="80dip"
+        android:layout_height="38dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/repeat_pwd"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#01586a"
+        android:text="改 MAC"
+        android:textColor="#ffffffff" />
+
+    <RelativeLayout
+        android:id="@+id/relativelayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/repeat_mac"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp" >
+
+        <TextView
+            android:id="@+id/tv_oldmac"
+            android:layout_width="80dip"
+            android:layout_height="38dip"
+            android:background="#01586a"
+            android:gravity="center"
+            android:text="原MAC地址"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/tv_oldmac_address"
+            android:layout_width="wrap_content"
+            android:layout_height="38dip"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_toRightOf="@+id/tv_oldmac"
+            android:background="#01586a"
+            android:gravity="center"
+            android:text="00-00-00-00-00-00"
+            android:textColor="#ffffffff" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativelayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp" >
+
+        <TextView
+            android:id="@+id/tv_newmac"
+            android:layout_width="80dip"
+            android:layout_height="38dip"
+            android:background="#01586a"
+            android:gravity="center"
+            android:text="新MAC地址"
+            android:textColor="#ffffffff" />
+
+        <EditText
+            android:id="@+id/ed_newmac_address"
+            android:layout_toRightOf="@+id/tv_newmac"
+            android:layout_width="wrap_content"
+            android:layout_height="38dip"
+            android:layout_marginLeft="20dp"
+            android:digits="abcdefABCDEF0123456789"
+            android:ems="10"
+            android:maxLength="12" >
+        </EditText>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/relativelayout3"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black" />
+
+    <Button
+        android:id="@+id/Unbunded_mac"
+        android:layout_width="80dip"
+        android:layout_height="38dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativelayout3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#01586a"
+        android:text="解绑 MAC"
+        android:textColor="#ffffffff" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/Unbunded_mac"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black" />
+
+    <Button
+        android:id="@+id/btn_change"
+        android:layout_width="80dip"
+        android:layout_height="38dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Unbunded_mac"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#01586a"
+        android:text="改模版"
+        android:textColor="#ffffffff" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="150dp"
+        android:layout_height="45dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/Unbunded_mac"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp" />
+
+</RelativeLayout>

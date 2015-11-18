@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/information_logo" >
+
+        <TextView
+            android:id="@+id/tx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="筛选排序规则"
+            android:textSize="20dip" />
+
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:background="#01586a"
+            android:text="返   回 "
+            android:textColor="#ffffffff" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tx_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginTop="14dp"
+        android:text="时间筛选（单选）"
+        android:textSize="15dip" />
+
+    <RadioGroup
+        android:id="@+id/genderGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tx_time"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_oneday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1天内" />
+
+        <RadioButton
+            android:id="@+id/rb_twoday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:text="2天内" />
+
+        <RadioButton
+            android:id="@+id/rb_threeday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:text="3天内" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tx_scope"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cb_oneday"
+        android:layout_below="@+id/genderGroup"
+        android:layout_marginTop="12dp"
+        android:text="范围筛选（单选）"
+        android:textSize="15dip" />
+    
+    <Spinner
+        android:id="@+id/group_scope"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tx_scope"
+        />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/group_scope"
+        android:layout_marginTop="12dp"
+        android:text="范围筛选（复选）" />
+
+    <CheckBox
+        android:id="@+id/unselect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/tx_scope"
+        android:text="未响应" />
+
+    <CheckBox
+        android:id="@+id/cb_respond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/unselect"
+        android:layout_alignBottom="@+id/unselect"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="我响应的" />
+
+    <CheckBox
+        android:id="@+id/closeJobSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cb_respond"
+        android:layout_below="@+id/cb_respond"
+        android:text="已消单" />
+
+    <CheckBox
+        android:id="@+id/uncloseJobSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/closeJobSelect"
+        android:layout_alignBottom="@+id/closeJobSelect"
+        android:layout_alignLeft="@+id/unselect"
+        android:text="未消单" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/closeJobSelect"
+        android:layout_marginTop="12dp"
+        android:text="排序规则（单选）" />
+
+    <RadioGroup
+        android:id="@+id/rg_sort"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_studentid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学号" />
+
+        <RadioButton
+            android:id="@+id/rb_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地址" />
+
+        <RadioButton
+            android:id="@+id/rb_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下单时间" />
+    </RadioGroup>
+
+</RelativeLayout>

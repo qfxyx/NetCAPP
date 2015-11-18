@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/information_logo" >
+
+        <TextView
+            android:id="@+id/tx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="用户明细"
+            android:textSize="20dip" />
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="#01586a"
+            android:text="列  表"
+            android:textColor="#ffffffff" />
+
+        <Button
+            android:id="@+id/user_operate"
+            android:layout_width="60dip"
+            android:layout_height="38dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="#01586a"
+            android:text="操  作"
+            android:textColor="#ffffffff" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/layout"
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginBottom="15dp" />
+
+    <ProgressBar
+        android:id="@+id/refresh_progress"
+        style="@android:attr/protectionLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="30dp" />
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" >
+
+        <Button
+            android:id="@+id/sam3_message"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/blue"
+            android:text="SAM3信息"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/synchronous_sam3"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/sam3_message"
+            android:background="@color/blue"
+            android:text="SAM3同步"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/journal"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/synchronous_sam3"
+            android:background="@color/blue"
+            android:text="认证日志"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/net_detailed"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/journal"
+            android:background="@color/blue"
+            android:text="上网明细"
+            android:textColor="@color/white" />
+        
+         <Button
+            android:id="@+id/kick_user_offline"
+            android:layout_width="60dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/sam3_message"
+            android:background="@color/blue"
+            android:layout_marginTop="15dp"
+            android:text="踢下线"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</RelativeLayout>

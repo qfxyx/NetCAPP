@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <animation-list android:oneshot="false"     
+     xmlns:android="http://schemas.android.com/apk/res/android"> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress1" />     
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress2" />     
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress3" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress4" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress5" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress6" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress7" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress8" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress9" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress10" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress11" /> 
+     <item android:duration="100"  android:drawable="@drawable/bo_loading_module_loadprogress12" /> 
+</animation-list>   
