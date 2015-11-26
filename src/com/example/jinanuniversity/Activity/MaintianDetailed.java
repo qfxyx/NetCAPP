@@ -10,6 +10,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -53,8 +55,19 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 	private Boolean xiangying = false;
 	private Button bt_tell;
 	private String mtJob = "mtJob";
-
+	private boolean updateSession=false;
+	private boolean test=true;
+	private final int UPDATE_OK=1;
+	private final int UPDATE_FAILED=2;
 	ParamsManager paramsManager;
+
+	private Handler handler = new Handler(){
+		@Override
+	public void handleMessage(Message message){
+
+		}
+
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +78,7 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 		paramsManager=(ParamsManager)getApplication();
 		getDate();
 		initView();
+		UpdateSession();
 		new getmtJobList().execute();
 		Log.i(TAG, "onCreate end");
 	}
@@ -143,7 +157,7 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 			re = ieasy.getMtJob(sign, Config.APPKEY, timestamp, Config.VER,
 					account, jobId + "");
 			parserList(re);
-			Log.i(TAG, "getmtJobList re = ");
+			Log.i(TAG, "getmtJobList re = "+re);
 			return re;
 		}
 
@@ -152,8 +166,11 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 			message_refresh_progress.setVisibility(View.GONE);
 			if (blessingList != null) {
 				if (result.equals("noEffect")) {
-					Toast.makeText(getApplicationContext(), "暂无更新",
-							Toast.LENGTH_SHORT).show();
+
+						Toast.makeText(getApplicationContext(), "更新失败，请重新登录或检查网络状况",
+								Toast.LENGTH_SHORT).show();
+
+
 				} else {
 					dealResult = blessingList.getDealResult();
 					decide();
@@ -368,4 +385,29 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 			e.printStackTrace();
 		}
 	}
+
+	//更新Session
+	private void UpdateSession(){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Log.i(TAG, "update session start ");
+				timestamp = ParamsManager.getTime();
+				String sign = "";
+				String password = paramsManager.getStorePassword();
+				password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
+				sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
+				IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
+				IEasy ieasy = new IEasy(httApi);
+				String guestInfo;
+				guestInfo = ieasy.invitationCodeLogin(Config.APPKEY, timestamp, sign, Config.VER, account, password);
+				Log.i(TAG, "update session end ");
+				new getmtJobList().execute();
+			}
+		}).start();
+	}
+
+	//更新Session后再次获取数据
+
+
 }

@@ -49,6 +49,7 @@ public class BuildingList extends Activity implements
 		HashMap<String, Object> map;
 		for (int i = 0; i < strings.length; i++) {
 			map = new HashMap<String, Object>();
+			//delete the ""
 			map.put("name", strings[i].substring(1, strings[i].length() - 1));
 			mData.add(map);
 		}

@@ -53,7 +53,7 @@ public class Config {
 	/** 用户物理地址修改接口 */
 	public String MAC_UPDATE = DOMAIN_PORT + "/netcUser/macUpdate.do";
 	/** 用户SAM3模版修改接口 */
-	public String TEMPLATE = DOMAIN_PORT + "/netcUser/macUpdate.do";
+	public String TEMPLATE = DOMAIN_PORT + "/netcUser/sam3Template.do";
 	/** 用户物理地址解绑接口 */
 	public String MAC_FREE = DOMAIN_PORT + "/netcUser/sam3MacFree.do";
 	/** SAM3信息查询接口 */
