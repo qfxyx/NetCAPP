@@ -15,6 +15,7 @@ public class ParamsManager extends Application {
 	private ArrayList<PicPageType> picPageList = new ArrayList<PicPageType>();
 	private int page;
 	public boolean isRefresh = false;
+	public String storePassword="";
 
 	public int getId() {
 		return id;
@@ -98,5 +99,12 @@ public class ParamsManager extends Application {
 
 	public boolean isRefresh() {
 		return isRefresh;
+	}
+
+	public void setStorePassword(String password){
+		this.storePassword=password;
+	}
+	public String getStorePassword(){
+		return storePassword;
 	}
 }

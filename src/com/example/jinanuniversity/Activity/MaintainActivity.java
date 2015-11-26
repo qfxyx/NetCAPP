@@ -15,6 +15,8 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -70,6 +72,85 @@ public class MaintainActivity extends Activity implements OnClickListener {
 	private NetworkChangeRecevier networkChangeRecevier;
 	private Button networkChange;
 
+	private final int SESSION_FAIL=1;
+	private final int SESSION_OK=2;
+	private final int UPDATE_SESSION_OK=3;
+	private final int UPDATE_SESSION_FAIL=4;
+
+	  Handler handler =new Handler(){
+		@Override
+		public void handleMessage(Message message){
+			switch (message.what){
+
+				case SESSION_FAIL:
+					Log.i(TAG,"Session has failed !");
+					updateSession();
+					break;
+
+				case SESSION_OK:
+					Log.i(TAG,"Session is okey !");
+					List<MaintainItemType> list = (List<MaintainItemType>)message.obj;
+					message_refresh_progress.setVisibility(View.GONE);
+					if (list != null) {
+						if (list.size() == 0)
+							Toast.makeText(getApplicationContext(), "暂无更新",
+									Toast.LENGTH_SHORT).show();
+						else {
+							HashMap<String, Object> map = new HashMap<String, Object>();
+							for (int i = 0; i < list.size(); i++) {
+								map = new HashMap<String, Object>();
+								map.put("userId", list.get(i).getUserId());
+								map.put("id", list.get(i).getId());
+								map.put("name", list.get(i).getName());
+								map.put("jobLevel", list.get(i).getJobLevel());
+								map.put("dealResult", list.get(i).getDealResult());
+								map.put("address", list.get(i).getAddress());
+								map.put("accepteTime", list.get(i).getAccepteTime());
+								map.put("trblStatus", list.get(i).getTrblStatus());
+								mData.add(map);
+							}
+
+							footerMoreTxt.setText("更多");
+							mMoreView.setClickable(true);
+						}
+						if (pageNo == 1) {
+							mListView.onRefreshComplete();
+						} else {
+							mListView.setSelection(mListView.getSelectedItemPosition());
+						}
+					} else {
+						Toast.makeText(getApplicationContext(), "更新失败",
+								Toast.LENGTH_SHORT).show();
+					}
+					// View 控件进行创新之用 只能在UI线程中使用
+					Log.i(TAG, "getmtJobList onPostExecute update the content of listview");
+					mListView.invalidate();
+					footerMoreProgress.setVisibility(View.INVISIBLE);
+
+					break;
+
+				case UPDATE_SESSION_OK:
+					message_refresh_progress.setVisibility(View.GONE);
+					pageNo = 1;
+					mData.clear();
+					new getmtJobList().execute();// 获取新列表
+
+					break;
+
+				case UPDATE_SESSION_FAIL:
+					message_refresh_progress.setVisibility(View.GONE);
+					mListView.onRefreshComplete();
+					Toast.makeText(MaintainActivity.this,"更新失败，请检查网络状况或者重新登录",
+							Toast.LENGTH_SHORT).show();
+					break;
+
+				default:
+					break;
+			}
+
+		}
+	};
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.i(TAG, "onCreate start");
@@ -107,6 +188,7 @@ public class MaintainActivity extends Activity implements OnClickListener {
 			mData.clear();
 			pm.setRefresh(isRefresh);
 			getDate();
+			pageNo=1;
 			// 重新设置筛选的规则是在getmtJobList里面设置的
 			new getmtJobList().execute();
 		}
@@ -148,9 +230,11 @@ public class MaintainActivity extends Activity implements OnClickListener {
 			@Override
 			public void onRefresh() {
 				Log.i(TAG, "setOnRefreshListener onRefresh start");
-				pageNo = 1;
-				mData.clear();
-				new getmtJobList().execute();// 获取新列表
+				 pageNo = 1;
+				 mData.clear();
+				//new getmtJobList().execute();// 获取新列表
+				message_refresh_progress.setVisibility(View.VISIBLE);
+				testSession();
 				Log.i(TAG, "setOnRefreshListener onRefresh end");
 			}
 		});
@@ -352,4 +436,68 @@ public class MaintainActivity extends Activity implements OnClickListener {
 		}
 	}
 
+	private void testSession(){
+        new Thread(new Runnable() {
+			@Override
+			public void run() {
+				List<MaintainItemType> blessingList;
+				String sign = "";
+				timestamp = ParamsManager.getTime();
+				sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY
+						+ timestamp + Config.VER + account + name + ruleList + pageNo);
+				IEasy ieasy = new IEasy(new IEasyHttpApiV1());
+				String re = "";
+				re = ieasy.getMainList(sign, Config.APPKEY, timestamp, Config.VER,
+						account, name, ruleList, String.valueOf(pageNo));
+				Log.i(TAG, "getListData() re = " + re);
+
+				if (re.equals("noEffect")){
+					Message message=new Message();
+					message.what=SESSION_FAIL;
+					handler.sendMessage(message);
+
+				}else {
+					blessingList = parserList(re);
+					Message message=new Message();
+					message.what=SESSION_OK;
+					message.obj=blessingList;
+					handler.sendMessage(message);
+
+
+				}
+
+			}
+		}).start();
+	}
+	private void updateSession() {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Log.i(TAG, "update session start ");
+				timestamp = ParamsManager.getTime();
+				String sign = "";
+				String password = pm.getStorePassword();
+				password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
+				sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
+				IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
+				IEasy ieasy = new IEasy(httApi);
+				String guestInfo;
+				guestInfo = ieasy.invitationCodeLogin(Config.APPKEY, timestamp, sign, Config.VER, account, password);
+				Log.i(TAG, "update session end ");
+				if (guestInfo.equals("noEffect")) {
+					Message m = new Message();
+					m.what=UPDATE_SESSION_FAIL;
+					handler.sendMessage(m);
+
+				}else {
+					Message m = new Message();
+					m.what=UPDATE_SESSION_OK;
+					handler.sendMessage(m);
+
+				}
+
+			}
+		}).start();
+
+	}
 }

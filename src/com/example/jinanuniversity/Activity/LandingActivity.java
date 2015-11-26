@@ -59,7 +59,7 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 	private String templateList;
 	private String groupList;
 	private String property;
-	private String TestString;
+    private ParamsManager paramsManager;
 	
 	public static final String ACTION_INTENT_TEST = "com.terry.broadcast.test";
 
@@ -96,6 +96,7 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 		cb_save.setChecked(isSave);
 		bt_bowout.setOnClickListener(this);
 		bt_landing.setOnClickListener(this);
+		paramsManager=(ParamsManager)getApplication();
 		// TODO DELETE IT WHEN DEPLOY TO USER
 //		user_account.setText("ffw");
 //		user_password.setText("feiwen");
@@ -119,6 +120,7 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 		protected String doInBackground(Void... params) {
 			timestamp = ParamsManager.getTime();
 			String sign = "";
+			paramsManager.setStorePassword(password);
 			password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
 			sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
 			IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
