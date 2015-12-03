@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 public class OtherActivity extends Activity implements OnClickListener {
 	private static final String TAG = "Activity.OtherActivity";
-	private Button bt_qiut, bt_notice, bt_server, bt_cancel;
+	private Button bt_qiut, bt_version, bt_server, bt_cancel;
 	PreferencesHelper preferencesHelper;
 	private String account;
 	private int code;
@@ -52,12 +52,12 @@ public class OtherActivity extends Activity implements OnClickListener {
 				PreferencesHelper.LOGININFO);
 		account = preferencesHelper.getString("account", "");
 
-		bt_notice = (Button) findViewById(R.id.bt_notice);
+		bt_version = (Button) findViewById(R.id.bt_version);
 		bt_server = (Button) findViewById(R.id.bt_server);
 		bt_cancel = (Button) findViewById(R.id.bt_cancel);
 		bt_qiut=(Button)findViewById(R.id.bt_quit);
 
-		bt_notice.setOnClickListener(this);
+		bt_version.setOnClickListener(this);
 		bt_server.setOnClickListener(this);
 		bt_cancel.setOnClickListener(this);
 		bt_qiut.setOnClickListener(this);
@@ -105,9 +105,8 @@ public class OtherActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 
-		case R.id.bt_notice:
-			startActivity(new Intent(OtherActivity.this,
-					NoticeInstallActivity.class));
+		case R.id.bt_version:
+			Toast.makeText(OtherActivity.this,"开发中，请稍候。。。",Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.bt_server:
 			startActivity(new Intent(OtherActivity.this, ServerActivity.class));

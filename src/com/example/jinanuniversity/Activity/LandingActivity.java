@@ -120,6 +120,7 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 		protected String doInBackground(Void... params) {
 			timestamp = ParamsManager.getTime();
 			String sign = "";
+			//保存密码为全局变量
 			paramsManager.setStorePassword(password);
 			password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
 			sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
@@ -186,6 +187,9 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 			preferencesHelper.setString("templateList", this.templateList);
 			preferencesHelper.setString("groupList", this.groupList);
 			preferencesHelper.setString("property", this.property);
+			//为防止全局变量的密码失效，把密码存贮下来
+			preferencesHelper.setString("store_password",paramsManager.getStorePassword() );
+
 
 			isSave = cb_save.isChecked();
 			preferencesHelper.setBoolean("isSave", isSave);

@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,6 +47,7 @@ public class UserActivity extends Activity implements OnClickListener {
 	private testMapToJSON ruleListJson = new testMapToJSON();
 	private int requestCode = 1;
 	private PreferencesHelper preferencesHelper;
+	ParamsManager paramsManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class UserActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.user);
+		paramsManager=(ParamsManager)getApplication();
 		preferencesHelper = new PreferencesHelper(getApplicationContext(),
 				PreferencesHelper.LOGININFO);
 		account = preferencesHelper.getString("account", "");
@@ -65,6 +68,7 @@ public class UserActivity extends Activity implements OnClickListener {
 	protected void onResume() {
 		Log.i(TAG, "onResume start");
 		super.onResume();
+		UpdateSession();
 		Log.i(TAG, "onResume end");
 	}
 
@@ -304,4 +308,28 @@ public class UserActivity extends Activity implements OnClickListener {
 		} catch (IllegalArgumentException e) {
 		}
 	}
+	private void UpdateSession(){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("update session start ");
+				 String timestamp = ParamsManager.getTime();
+				String sign = "";
+				String password = preferencesHelper.getString("store_password", "");
+				password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
+				sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
+				IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
+				IEasy ieasy = new IEasy(httApi);
+				String guestInfo;
+				guestInfo = ieasy.invitationCodeLogin(Config.APPKEY, timestamp, sign, Config.VER, account, password);
+				System.out.println("update session end ");
+				if (guestInfo.equals("noEffect")){
+					System.out.println("update session failed ");
+				}else {
+					System.out.println("update session succeed ");
+				}
+			}
+		}).start();
+	}
+
 }

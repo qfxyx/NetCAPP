@@ -59,11 +59,27 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 	private boolean test=true;
 	private final int UPDATE_OK=1;
 	private final int UPDATE_FAILED=2;
+	private final int UPDATE_SESSION=3;
 	ParamsManager paramsManager;
 
 	private Handler handler = new Handler(){
 		@Override
 	public void handleMessage(Message message){
+			switch (message.what){
+
+				case UPDATE_SESSION:
+					UpdateSession();
+					break;
+
+				case UPDATE_OK:
+					new getmtJobList().execute();
+					break;
+
+				case UPDATE_FAILED:
+					Toast.makeText(MaintianDetailed.this,"获取维护单明细失败，" +
+							"请检查网络情况或重新登录",Toast.LENGTH_SHORT).show();
+					break;
+			}
 
 		}
 
@@ -78,7 +94,6 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 		paramsManager=(ParamsManager)getApplication();
 		getDate();
 		initView();
-		UpdateSession();
 		new getmtJobList().execute();
 		Log.i(TAG, "onCreate end");
 	}
@@ -157,7 +172,7 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 			re = ieasy.getMtJob(sign, Config.APPKEY, timestamp, Config.VER,
 					account, jobId + "");
 			parserList(re);
-			Log.i(TAG, "getmtJobList re = "+re);
+			Log.i(TAG, "getmtJobList re = " + re);
 			return re;
 		}
 
@@ -165,10 +180,18 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 		protected void onPostExecute(String result) {
 			message_refresh_progress.setVisibility(View.GONE);
 			if (blessingList != null) {
-				if (result.equals("noEffect")) {
-
-						Toast.makeText(getApplicationContext(), "更新失败，请重新登录或检查网络状况",
+			   if (result.equals("noEffect")) {
+					Log.i(TAG, "session may have been failed " );
+					if (!updateSession){
+						Message message=new Message();
+						message.what=UPDATE_SESSION;
+						handler.sendMessage(message);
+					}else {
+						Toast.makeText(getApplicationContext(), "暂无更新",
 								Toast.LENGTH_SHORT).show();
+					}
+
+
 
 
 				} else {
@@ -394,7 +417,8 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 				Log.i(TAG, "update session start ");
 				timestamp = ParamsManager.getTime();
 				String sign = "";
-				String password = paramsManager.getStorePassword();
+				String password = preferencesHelper.getString("store_password","");
+				Log.i(TAG, "password getting from Preferences = "+password);
 				password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
 				sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
 				IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
@@ -402,12 +426,20 @@ public class MaintianDetailed extends Activity implements OnClickListener {
 				String guestInfo;
 				guestInfo = ieasy.invitationCodeLogin(Config.APPKEY, timestamp, sign, Config.VER, account, password);
 				Log.i(TAG, "update session end ");
-				new getmtJobList().execute();
+				updateSession=true;
+				if (guestInfo.equals("noEffect")){
+					Message message = new Message();
+					message.what=UPDATE_FAILED;
+					handler.sendMessage(message);
+				}else {
+					Message message = new Message();
+					message.what=UPDATE_OK;
+					handler.sendMessage(message);
+				}
 			}
 		}).start();
 	}
 
-	//更新Session后再次获取数据
 
 
 }

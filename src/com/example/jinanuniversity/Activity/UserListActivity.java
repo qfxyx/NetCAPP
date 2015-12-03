@@ -119,6 +119,7 @@ public class UserListActivity extends Activity {
 			IEasy ieasy = new IEasy(new IEasyHttpApiV1());
 			String re = ieasy.getUserList(sign, timestamp, account, ruleList,
 					String.valueOf(pageNo), pwd);
+			Log.i(TAG, "return message = " + re);
 			Log.i(TAG, "sign==" + sign);
 			Log.i(TAG, "timestamp==" + timestamp);
 			Log.i(TAG, "account==" + account);

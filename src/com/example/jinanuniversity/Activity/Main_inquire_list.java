@@ -9,6 +9,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,13 +58,42 @@ public class Main_inquire_list extends Activity {
 	private TextView footerMoreTxt;
 	private ProgressBar footerMoreProgress;
 	private Button btn_back;
+	ParamsManager paramsManager;
+	private boolean updateSession=false;
+	private boolean test=true;
+	private final int UPDATE_OK=1;
+	private final int UPDATE_FAILED=2;
+	private final int UPDATE_SESSION=3;
+	private final String TAG=".Activity.Main_inquire_detail";
+	private Handler handler = new Handler(){
+		@Override
+		public void handleMessage(Message message){
+			switch (message.what){
+
+				case UPDATE_SESSION:
+					UpdateSession();
+					break;
+
+				case UPDATE_OK:
+					new getmtJobList().execute();
+					break;
+
+				case UPDATE_FAILED:
+					Toast.makeText(Main_inquire_list.this,"获取历史维护单列表失败，" +
+							"请检查网络情况或重新登录",Toast.LENGTH_SHORT).show();
+					break;
+			}
+
+		}
+
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.inquire_list);
-		
+		paramsManager=(ParamsManager)getApplication();
 		getDate();
 		// initData();
 		test();
@@ -116,9 +147,14 @@ public class Main_inquire_list extends Activity {
 		account = preferencesHelper.getString("account", "");
 		name = preferencesHelper.getString("name", "");
 		rangeSelect = preferencesHelper.getString("rangeSelect", "my");
-		jobIdSelect = preferencesHelper.getString("jobIdSelect", "no");
-		userIdSelect = preferencesHelper.getString("userIdSelect", "no");
-		userNameSelect = preferencesHelper.getString("userNameSelect", "no");
+
+		//jobIdSelect = preferencesHelper.getString("jobIdSelect", "no");
+		jobIdSelect=(getIntent() == null ? "" : getIntent().getStringExtra("jobIdSelect"));
+		//userIdSelect = preferencesHelper.getString("userIdSelect", "no");
+		userIdSelect=(getIntent() == null ? "" : getIntent().getStringExtra("userIdSelect"));
+		//userNameSelect = preferencesHelper.getString("userNameSelect", "no");
+		userNameSelect=(getIntent() == null ? "" : getIntent().getStringExtra("userNameSelect"));
+
 		accepteTimeSelect = preferencesHelper.getString("accepteTimeSelect",
 				"no");
 		closeTimeSelect = preferencesHelper.getString("closeTimeSelect", "no");
@@ -227,9 +263,17 @@ public class Main_inquire_list extends Activity {
 			message_refresh_progress.setVisibility(View.GONE);
 			// dismissProgressDialog();
 			if (list != null) {
-				if (list.size() == 0)
-					Toast.makeText(getApplicationContext(), "暂无更新",
-							Toast.LENGTH_SHORT).show();
+				if (list.size() == 0){
+					if (!updateSession){
+						Message message=new Message();
+						message.what=UPDATE_SESSION;
+						handler.sendMessage(message);
+					}else {
+						Toast.makeText(getApplicationContext(), "暂无更新",
+								Toast.LENGTH_SHORT).show();
+					}
+
+				}
 				else {
 					HashMap<String, Object> map = new HashMap<String, Object>();
 					for (int i = 0; i < list.size(); i++) {
@@ -268,6 +312,36 @@ public class Main_inquire_list extends Activity {
 			message_refresh_progress.setVisibility(View.VISIBLE);
 			mMoreView.setClickable(false);
 		}
+	}
+	private void UpdateSession(){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				System.out.println("update session start ");
+				timestamp = ParamsManager.getTime();
+				String sign = "";
+				String password = preferencesHelper.getString("store_password", "");
+				password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
+				sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
+				IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
+				IEasy ieasy = new IEasy(httApi);
+				String guestInfo;
+				guestInfo = ieasy.invitationCodeLogin(Config.APPKEY, timestamp, sign, Config.VER, account, password);
+				System.out.println("update session end ");
+				updateSession=true;
+				test=false;
+				if (guestInfo.equals("noEffect")){
+					Message message = new Message();
+					message.what=UPDATE_FAILED;
+					handler.sendMessage(message);
+				}else {
+					Message message = new Message();
+					message.what=UPDATE_OK;
+					handler.sendMessage(message);
+					System.out.println("update session succeed ");
+				}
+			}
+		}).start();
 	}
 
 }

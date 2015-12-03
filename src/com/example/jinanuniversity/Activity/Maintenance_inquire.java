@@ -385,6 +385,19 @@ public class Maintenance_inquire extends Activity implements OnClickListener {
 			jobId = ed_maintian_num.getText().toString();
 			userId = ed_user_num.getText().toString();
 			userName = ed_user_name.getText().toString();
+           //重设name userId JobId选择规则  解决第一次姓名检索时不出结果的bug
+			String userNameSelect = "no";
+			String userIdSelect = "no";
+			String jobIdSelect = "no";
+			if (maintian_num.isChecked()&&!ed_maintian_num.getText().toString().isEmpty()){
+				jobIdSelect = "yes";
+			}
+			if (user_num.isChecked()&&!ed_user_num.getText().toString().isEmpty()){
+				userIdSelect = "yes";
+			}
+			if (user_name.isChecked()&&!ed_user_name.getText().toString().isEmpty()){
+				userNameSelect = "yes";
+			}
 
 			Intent intent = new Intent(Maintenance_inquire.this,
 					Main_inquire_list.class);
@@ -395,6 +408,9 @@ public class Maintenance_inquire extends Activity implements OnClickListener {
 			intent.putExtra("accepteTimeEnd", accepteTimeEnd);
 			intent.putExtra("closeTimeStart", closeTimeStart);
 			intent.putExtra("closeTimeEnd", closeTimeEnd);
+			intent.putExtra("jobIdSelect",jobIdSelect);
+			intent.putExtra("userIdSelect",userIdSelect);
+			intent.putExtra("userNameSelect",userNameSelect);
 			startActivity(intent);
 			break;
 		case R.id.bt_begin_time:

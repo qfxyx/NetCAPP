@@ -171,6 +171,8 @@ public class MaintainActivity extends Activity implements OnClickListener {
 		Log.i(TAG, "onResume() start");
 		super.onResume();
 		Log.i(TAG, "onResume xiangying = " + xiangying);
+		Log.i(TAG, "the password store in the cellphone = "
+				+preferencesHelper.getString("store_password", "") );
 
 		/*
 		if (xiangying) {
@@ -251,7 +253,7 @@ public class MaintainActivity extends Activity implements OnClickListener {
 			@Override
 			public void onClick(View v) {
 				pageNo++;
-				new getmtJobList().execute();
+				testSession();
 			}
 		});
 		mListView.addFooterView(mMoreView);
@@ -475,15 +477,22 @@ public class MaintainActivity extends Activity implements OnClickListener {
 			public void run() {
 				Log.i(TAG, "update session start ");
 				timestamp = ParamsManager.getTime();
+				Log.i(TAG, "timestamp =  "+timestamp);
 				String sign = "";
-				String password = pm.getStorePassword();
+				//String password = pm.getStorePassword();
+				String password =preferencesHelper.getString("store_password","");
+				Log.i(TAG, "password getting from global variable  = "+pm.getStorePassword());
+				Log.i(TAG, "password getting from Preferences = "+password);
+				Log.i(TAG, "update session start ");
+				Log.i(TAG, "acoount = "+account);
 				password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
+				Log.i(TAG, "password after md5 = "+password);
 				sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
 				IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
 				IEasy ieasy = new IEasy(httApi);
 				String guestInfo;
 				guestInfo = ieasy.invitationCodeLogin(Config.APPKEY, timestamp, sign, Config.VER, account, password);
-				Log.i(TAG, "update session end ");
+				Log.i(TAG, "update session end "+"   "+guestInfo);
 				if (guestInfo.equals("noEffect")) {
 					Message m = new Message();
 					m.what=UPDATE_SESSION_FAIL;
