@@ -20,7 +20,7 @@ public class Service {
 
 	private Service() {
 //		serviceIp = "netcapi1.jnu.edu.cn";
-		serviceIp = "202.116.0.23/netcapi";
+		serviceIp = "202.116.9.18:8080/netcapi";
 	}
 
 	public String getServiceIp() {

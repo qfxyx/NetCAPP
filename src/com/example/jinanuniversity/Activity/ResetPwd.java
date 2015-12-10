@@ -213,15 +213,18 @@ public class ResetPwd extends Activity {
 
     private void resetPwdTest() {
         final Config config = new Config();
-        //final String url= config.PWDRESET;
-        final String url = config.USERDETAIL;
+      //  final String url= config.PWDRESET;
+        //final String url = config.USERDETAIL;
+        final String url="http://202.116.9.18:8080/netcapi/netcUser/pwdResetNew.do";
+        //String url="http://202.116.9.18:8080/netcapi//netcUser/detail.do";
         Log.i(TAG, "reset start and get the url = " + url);
         new Thread(new Runnable() {
             @Override
             public void run() {
                 String timestamp = ParamsManager.getTime();
+                String password = ParamsManager.enCode(pwd);
                 String sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp
-                        + Config.VER + account + userId);
+                        + Config.VER + account + userId+password);
                 try {
                     HttpClient httpClient = new DefaultHttpClient();
                     HttpPost httpPost = new HttpPost(url);
@@ -231,7 +234,7 @@ public class ResetPwd extends Activity {
                     params.add(new BasicNameValuePair("timestamp", timestamp));
                     params.add(new BasicNameValuePair("ver", Config.VER));
                     params.add(new BasicNameValuePair("account", account));
-                    //params.add(new BasicNameValuePair("newPwd", pwd));
+                    params.add(new BasicNameValuePair("newPwd", password));
                     params.add(new BasicNameValuePair("userId", userId));
                     httpPost.setHeader("Cookie", "JSESSIONID=" + Service.getInstance().getJSESSIONID());
                     httpPost.setEntity(new UrlEncodedFormEntity(params, HTTP.UTF_8));
