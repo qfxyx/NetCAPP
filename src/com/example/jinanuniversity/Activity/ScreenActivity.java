@@ -338,6 +338,9 @@ public class ScreenActivity extends Activity implements OnClickListener,OnItemSe
 			scope = "支援";
 		} else if ("所有".equals(selectedItem)) {
 			scope = "所有";
+		} else if("南校区机动组".equals(selectedItem)){
+			//new added by liangbin
+			scope="南校区机动组";
 		}
 		setMeasure(scope, "scope");
 	}

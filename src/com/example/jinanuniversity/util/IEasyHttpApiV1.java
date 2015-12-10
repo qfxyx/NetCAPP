@@ -331,6 +331,22 @@ public class IEasyHttpApiV1 {
 		return mHttpApi.doHttpPost(url, namevalues);
 	}
 
+	public String resetPwd(String url, String appkey, String sign, String timestamp,
+						   String ver, String account, String userId,String New_pwd)
+			throws NumberFormatException, IOException,
+			IEasyCredentialsException, IEasyParseException, IEasyException {
+		Log.i(TAG, "getUserDetail 请求中:" + url);
+		NameValuePair[] namevalues = {
+				new BasicNameValuePair("appkey", appkey),
+				new BasicNameValuePair("sign", sign),
+				new BasicNameValuePair("timestamp", timestamp),
+				new BasicNameValuePair("ver", ver),
+				new BasicNameValuePair("account", account),
+				new BasicNameValuePair("newPwd", New_pwd),
+				new BasicNameValuePair("userId", userId) };
+		return mHttpApi.doHttpPost(url, namevalues);
+	}
+
 	/**
 	 * 用户物理地址修改
 	 */

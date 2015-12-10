@@ -23,7 +23,7 @@ public class Config {
 	/** 踢下线功能接口 */
 	public String SAM3KICK = DOMAIN_PORT + "/netcUser/sam3Kick.do";
 	/** 用户密码重置 接口 */
-	public String PWDRESET = DOMAIN_PORT + "/netcUser/pwdReset.do";
+	public String PWDRESET = DOMAIN_PORT + "/netcUser/pwdResetNew.do";
 	/** 信息发送 接口 */
 	public String SEND = DOMAIN_PORT + "/mtMsg/send.do";
 	/** 用户列表接口 接口 */

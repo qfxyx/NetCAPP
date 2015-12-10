@@ -383,6 +383,24 @@ public class IEasy {
 		}
 		return flag;
 	}
+    //v2版本新增的密码重置接口
+	public String resetPwd(String url, String appkey, String sign, String timestamp, String version,
+						   String account, String userId, String New_pwd) {
+		String flag = "noEffect";
+		try {
+			flag = mIEasyV1.resetPwd(url, appkey, sign, timestamp,
+					version, account, userId,New_pwd);
+		} catch (IEasyCredentialsException e) {
+			e.printStackTrace();
+		} catch (IEasyParseException e) {
+			e.printStackTrace();
+		} catch (IEasyException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
 
 	/**
 	 * 用户物理地址修改

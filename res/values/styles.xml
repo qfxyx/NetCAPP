@@ -15,4 +15,13 @@
         <item name="android:paddingTop">5.0dip</item>
     </style>
 
+    <style name="myAlertDialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:background">#F5FFFA</item>
+        <item name="android:windowTitleStyle">@style/mytitleStyle</item>
+    </style>
+
+    <style name="mytitleStyle" parent="@android:style/TextAppearance.DialogWindowTitle">
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
 </resources>

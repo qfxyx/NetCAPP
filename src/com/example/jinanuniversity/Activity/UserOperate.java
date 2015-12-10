@@ -3,6 +3,7 @@ package com.example.jinanuniversity.Activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -123,8 +124,12 @@ public class UserOperate extends Activity implements OnClickListener {
 		case R.id.repeat_pwd:
 			txt = "密码重置成功 !";
 			txtdialog = "密码重置中...";
-			showProgressDialog(txtdialog);
-			new getInfo().execute(config.PWDRESET);
+			//showProgressDialog(txtdialog);
+			//new getInfo().execute(config.PWDRESET);
+			Intent send_intent=new Intent(this,ResetPwd.class);
+			send_intent.putExtra("userId",userId);
+			send_intent.putExtra("account",account);
+			startActivity(send_intent);
 			break;
 
 		case R.id.repeat_mac:

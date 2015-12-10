@@ -5,7 +5,7 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="15" />
+        android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -102,6 +102,10 @@
         <activity android:name=".Activity.PhotoDetails" >
         </activity>
         <activity android:name=".Activity.TestActivity">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Dialog"
+            android:name=".Activity.ResetPwd">
         </activity>
     </application>
 
