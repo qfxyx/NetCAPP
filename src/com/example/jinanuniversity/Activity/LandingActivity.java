@@ -127,6 +127,7 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 			IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
 			IEasy ieasy = new IEasy(httApi);
 			guestInfo = ieasy.invitationCodeLogin(Config.APPKEY, timestamp, sign, Config.VER, account, password);
+			Log.i(TAG,guestInfo);
 			Log.i(TAG, "login doInBackground end");
 			return guestInfo;
 		}

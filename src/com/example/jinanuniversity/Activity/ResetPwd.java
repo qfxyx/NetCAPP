@@ -197,11 +197,12 @@ public class ResetPwd extends Activity {
             @Override
             public void run() {
                 String timestamp = ParamsManager.getTime();
+                String password = ParamsManager.enCode(pwd);
                 String sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp
-                        + Config.VER + account + userId + pwd);
+                        + Config.VER + account + userId + password);
                 IEasy ieasy = new IEasy(new IEasyHttpApiV1());
                 String string = ieasy.resetPwd(new Config().PWDRESET, Config.APPKEY, sign, timestamp,
-                        Config.VER, account, userId, pwd);
+                        Config.VER, account, userId, password);
                 Log.i(TAG, "reset return message is  " + string);
                 Message message = new Message();
                 message.obj = string;
@@ -215,7 +216,7 @@ public class ResetPwd extends Activity {
         final Config config = new Config();
       //  final String url= config.PWDRESET;
         //final String url = config.USERDETAIL;
-        final String url="http://202.116.9.18:8080/netcapi/netcUser/pwdResetNew.do";
+        final String url="http://netcapi1.jnu.edu.cn/netcapi/netcUser/pwdResetNew.do";
         //String url="http://202.116.9.18:8080/netcapi//netcUser/detail.do";
         Log.i(TAG, "reset start and get the url = " + url);
         new Thread(new Runnable() {
@@ -273,7 +274,8 @@ public class ResetPwd extends Activity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        resetPwdTest();
+                        //resetPwdTest();
+                        resetPwd();
                     }
                 }).create();
         alertDialog.show();
