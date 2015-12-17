@@ -59,6 +59,7 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 	private String templateList;
 	private String groupList;
 	private String property;
+	private String serverList;
     private ParamsManager paramsManager;
 	
 	public static final String ACTION_INTENT_TEST = "com.terry.broadcast.test";
@@ -150,6 +151,7 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 				templateList = guestInfo.getTemplateList();
 				groupList=guestInfo.getGroupList();
 				property = guestInfo.getMtVwUser().getProperty();
+				serverList=guestInfo.getServerList();
 				if (code == 0) {
 					loginSuccess(guestInfo);
 				} else if (code == 1) {
@@ -188,6 +190,7 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 			preferencesHelper.setString("templateList", this.templateList);
 			preferencesHelper.setString("groupList", this.groupList);
 			preferencesHelper.setString("property", this.property);
+			preferencesHelper.setString("serverList",this.serverList);
 			//为防止全局变量的密码失效，把密码存贮下来
 			preferencesHelper.setString("store_password",paramsManager.getStorePassword() );
 

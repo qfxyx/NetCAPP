@@ -51,27 +51,26 @@
             android:id="@+id/server2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:text="接口服务器2" />
 
         <RadioButton
             android:id="@+id/user_defined"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:text="自定义" />
     </RadioGroup>
 
     <EditText
         android:id="@+id/ed_url"
+        android:layout_below="@id/radioGroup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="40dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="122dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="IpV4" >
-
         <requestFocus />
     </EditText>
 
@@ -79,11 +78,17 @@
         android:id="@+id/preserver"
         android:layout_width="60dip"
         android:layout_height="38dip"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@id/ed_url"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="59dp"
+        android:layout_marginTop="20dp"
         android:background="@color/blue"
         android:text="保存"
         android:textColor="@color/white" />
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/preserver"
+        android:id="@+id/server_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

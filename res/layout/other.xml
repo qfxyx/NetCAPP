@@ -40,10 +40,22 @@
         android:text="服务器设置" />
 
     <Button
-        android:id="@+id/bt_cancel"
+        android:id="@+id/bt_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bt_server"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/other"
+        android:textColor="@color/white"
+        android:textSize="18dip"
+        android:text="版本信息" />
+
+    <Button
+        android:id="@+id/bt_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_version"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:background="@drawable/other"
@@ -61,16 +73,6 @@
         android:textColor="@color/white"
         android:textSize="18dip"
         android:text="退出" />
-    <Button
-        android:id="@+id/bt_version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bt_quit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/other"
-        android:textColor="@color/white"
-        android:textSize="18dip"
-        android:text="版本信息" />
+
 
 </RelativeLayout>

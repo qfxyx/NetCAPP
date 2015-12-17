@@ -29,7 +29,14 @@ public class Base {
 	private String passReasonList;
 	private String templateList;
 	private String groupList;
+	private String serverList;
 
+    public String getServerList(){
+		return serverList;
+	}
+	public void setServerList(String serverList){
+		this.serverList=serverList;
+	}
 	public String getGroupList() {
 		return groupList;
 	}
@@ -79,6 +86,7 @@ public class Base {
 			passReasonList = dataJson.getString("passReasonList");
 			templateList = dataJson.getString("templateList");
 			groupList= dataJson.getString("groupList");
+			serverList=dataJson.getString("serverList");
 
 		} catch (Exception ex) {
 			// 异常处理代码

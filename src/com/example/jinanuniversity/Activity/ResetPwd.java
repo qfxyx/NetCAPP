@@ -41,6 +41,7 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +81,27 @@ public class ResetPwd extends Activity {
                 case RERSET_RESULT:
                     if (progressDialog != null) {
                         progressDialog.dismiss();
+                        String relust = (String)message.obj;
+                        if (!relust.isEmpty()&&relust!=null){
+                            try {
+                                JSONObject jsonObject = new JSONObject(relust);
+                                int code = jsonObject.getInt("code");
+                                String info = jsonObject.getString("info");
+                                Log.i(TAG, "return info = "+info);
+                                if(code==0){
+                                    Toast.makeText(ResetPwd.this,"修改密码成功！",Toast.LENGTH_LONG).show();
+                                }else if (code==1){
+                                    Toast.makeText(ResetPwd.this,"修改失败",Toast.LENGTH_SHORT).show();
+                                }
+                            }catch (Exception e){
+                                Toast.makeText(ResetPwd.this,"修改失败,程序发生未知错误",Toast.LENGTH_SHORT).show();
+                        }
+
+
+                        }else {
+                            Toast.makeText(ResetPwd.this,"修改失败",Toast.LENGTH_SHORT).show();
+                        }
+
                     }
 
             }
