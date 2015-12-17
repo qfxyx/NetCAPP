@@ -41,6 +41,7 @@ public class ServerActivity extends Activity implements OnClickListener {
 	private String account, password;
     private final String TAG =".activity.serverActivity";
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -199,8 +200,8 @@ public class ServerActivity extends Activity implements OnClickListener {
 	private void showServerDetail(List<Server> serverList){
 		if (serverList.size()>=2){
 
-			Spanned serverMessage=Html.fromHtml("<font size=\"7\" color=\"#0000CD\">接口信息：" +
-					"</font><br><br> 接口地址1" +
+			Spanned serverMessage=Html.fromHtml("<h1><font size=\"7\" color=\"#0000CD\">接口信息：" +
+					"</font></h1> 接口1地址" +
 					"--" + serverList.get(0).getHost() + "   ip--" + serverList.get(0).getIp()
 					+ "--" + serverList.get(0).getDate() + "<br><br>接口2地址--" + serverList.get(1).getHost()
 					+ "   ip--" + serverList.get(1).getIp() + "--" + serverList.get(1).getDate());

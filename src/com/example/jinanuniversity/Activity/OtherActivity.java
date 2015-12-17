@@ -106,7 +106,7 @@ public class OtherActivity extends Activity implements OnClickListener {
 		switch (v.getId()) {
 
 		case R.id.bt_version:
-			Toast.makeText(OtherActivity.this,"开发中，请稍候。。。",Toast.LENGTH_SHORT).show();
+			startActivity(new Intent(OtherActivity.this,VersionDetail.class));
 			break;
 		case R.id.bt_server:
 			startActivity(new Intent(OtherActivity.this, ServerActivity.class));

@@ -20,7 +20,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:paddingTop="0dip"
-        android:text="点我更新"
+        android:text="下拉更新"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@android:color/background_dark"
         android:textStyle="bold" />

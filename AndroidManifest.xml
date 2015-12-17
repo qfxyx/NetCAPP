@@ -107,6 +107,8 @@
             android:theme="@android:style/Theme.Dialog"
             android:name=".Activity.ResetPwd">
         </activity>
+        <activity android:name=".Activity.VersionDetail">
+        </activity>
     </application>
 
 </manifest>
