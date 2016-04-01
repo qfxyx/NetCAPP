@@ -10,8 +10,6 @@ public class Config {
 	public String DOMAIN_PORT = "http://"
 			+ Service.getInstance().getServiceIp();
 
-	/** 图片接口 */
-	public final static String PICURL = "http://202.116.0.23/netcapi/images/";
 	/** 登录 接口 */
 	public String MARRYPIE_LOGIN = DOMAIN_PORT + "/mtLogin/login.do";
 	/** 维护员明细 接口 */
@@ -24,14 +22,8 @@ public class Config {
 	public String SAM3KICK = DOMAIN_PORT + "/netcUser/sam3Kick.do";
 	/** 用户密码重置 接口 */
 	public String PWDRESET = DOMAIN_PORT + "/netcUser/pwdResetNew.do";
-	/** 信息发送 接口 */
-	public String SEND = DOMAIN_PORT + "/mtMsg/send.do";
 	/** 用户列表接口 接口 */
 	public String USERLIST = DOMAIN_PORT + "/netcUser/list.do";
-	/** 获取信息接口 */
-	public String GETMESSAGE = DOMAIN_PORT + "/mtMsg/list.do";
-	/** 信息明细接口 */
-	public String MTMSGDETAILS = DOMAIN_PORT + "/mtMsg/detail.do";
 	/** 获取维护单列表接口 */
 	public String MTJOB = DOMAIN_PORT + "/mtJob/list.do";
 	/** 历史维护单列表接口 */
@@ -40,8 +32,6 @@ public class Config {
 	public String MTJOB_DETAIL = DOMAIN_PORT + "/mtJob/detail.do";
 	/** 历史维护单明细接口 */
 	public String HISTORYJON_DETAIL = DOMAIN_PORT + "/mtHistoryJob/detail.do";
-	/** 新建信息接口 */
-	public String NEWMSG = DOMAIN_PORT + "/mtMsg/create.do";
 	/** 维护消单接口 */
 	public String CLOSEJOB = DOMAIN_PORT + "/mtJob/close.do";
 	/** 维护单延时接口 */
@@ -62,9 +52,6 @@ public class Config {
 	public String SAM3LOGLIST = DOMAIN_PORT + "/netcUser/sam3LogList.do";
 	/** SAM3上网明细接口 */
 	public String SAM3DETAIL = DOMAIN_PORT + "/netcUser/sam3DetailList.do";
-	/** 图片列表接口 */
-	public String GETPICLIST = DOMAIN_PORT + "/mtPic/list.do";
-	/** 图片明细接口 */
 	public String GETPICDETAILS = DOMAIN_PORT + "/mtPic/detail.do";
 	/** 注销登录接口 */
 	public String LOGOUT = DOMAIN_PORT + "/mtLogin/logout.do";

@@ -8,9 +8,7 @@ public class MD5 {
 	* MD5 ("a") = 0cc175b9c0f1b6a831c399e269772661 
 	* MD5 ("abc") = 900150983cd24fb0d6963f7d28e17f72 
 	* MD5 ("message digest") = f96b697d7cb7938d525a2f31aaf161d0 
-	* MD5 ("abcdefghijklmnopqrstuvwxyz") = c3fcd3d76192e4007dfb496cca67e13b 
-	* 
-	* @author haogj 
+	* MD5 ("abcdefghijklmnopqrstuvwxyz") = c3fcd3d76192e4007dfb496cca67e13b
 	* 
 	* 传入参数：一个字节数组 
 	* 传出参数：字节数组的 MD5 结果字符串 

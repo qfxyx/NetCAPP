@@ -332,9 +332,7 @@ public class MaintainActivity extends Activity implements OnClickListener {
 
 	/**
 	 * 获取信息json数据
-	 * 
-	 * @param b
-	 * @return
+	 *
 	 */
 	private List<MaintainItemType> getListData() {
 		Log.i(TAG, "getListData() start");
@@ -358,9 +356,6 @@ public class MaintainActivity extends Activity implements OnClickListener {
 	// 现在出现的一个问题就是会出现一种情况就是维护单列表没有更多的数据显示
 	/**
 	 * 异步加载数据
-	 * 
-	 * @author luxun
-	 * 
 	 */
 	private class getmtJobList extends AsyncTask<Void, Void, String> {
 		List<MaintainItemType> list;

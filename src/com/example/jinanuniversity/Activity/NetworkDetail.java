@@ -43,9 +43,6 @@ import com.example.jinanuniversity.util.IEasyHttpApiV1;
 
 /**
  * 上网明细
- * 
- * @author luxun
- * 
  */
 public class NetworkDetail extends Activity implements OnClickListener {
 

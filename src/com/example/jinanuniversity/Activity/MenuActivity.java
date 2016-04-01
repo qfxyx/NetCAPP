@@ -31,24 +31,9 @@ public class MenuActivity extends TabActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.menu);
 
-		// //生成广播处理
-		// smsBroadCastReceiver = new SmsBroadCastReceiver();
-		// //实例化过滤器并设置要过滤的广播
-		//
-		// IntentFilter intentFilter = new
-		// IntentFilter("android.provider.Telephony.SMS_RECEIVED");
-		//
-		// //注册广播
-		// BroadCastReceiverActivity.this.registerReceiver(smsBroadCastReceiver,
-		// intentFilter);
-
 		group = (RadioGroup) findViewById(R.id.main_radio);
 		tabHost = getTabHost();
 
-		/*
-		tabHost.addTab(tabHost.newTabSpec(Message).setIndicator(Message)
-				.setContent(new Intent(this, InformationActivity.class)));
-		*/
 		tabHost.addTab(tabHost.newTabSpec(Maintenance)
 				.setIndicator(Maintenance)
 				.setContent(new Intent(this, MaintainActivity.class)));

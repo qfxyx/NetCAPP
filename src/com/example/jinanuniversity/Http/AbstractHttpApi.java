@@ -42,9 +42,7 @@ import com.example.jinanuniversity.util.Parser;
 import android.util.Log;
 
 public abstract class AbstractHttpApi implements HttpApi {
-	
-	protected static final Logger LOG = Logger.getLogger(AbstractHttpApi.class
-			.getCanonicalName());
+
 	private static final String TAG = "AbstractHttpApi";
 	private static final String CLIENT_VERSION_HEADER = "User-Agent";
 	private static final int TIMEOUT = 60;

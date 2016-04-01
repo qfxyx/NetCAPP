@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.example.jinanuniversity.types.PicPageType;
 import com.example.jinanuniversity.util.MD5;
 
 import android.app.Application;
@@ -12,8 +11,8 @@ import android.app.Application;
 public class ParamsManager extends Application {
 
 	private int id;
-	private ArrayList<PicPageType> picPageList = new ArrayList<PicPageType>();
 	private int page;
+	//以下两个标志量在2015.11.24日之前的测试中会遇到失效问题，已采取另外的方案，现在暂时保留
 	public boolean isRefresh = false;
 	public String storePassword="";
 
@@ -29,13 +28,6 @@ public class ParamsManager extends Application {
 		this.page = page;
 	}
 
-	public ArrayList<PicPageType> getPicPageList() {
-		return picPageList;
-	}
-
-	public void setPicPageList(ArrayList<PicPageType> picPageList) {
-		this.picPageList = picPageList;
-	}
 
 	public void setId(int id) {
 		this.id = id;

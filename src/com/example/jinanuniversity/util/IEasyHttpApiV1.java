@@ -41,6 +41,7 @@ public class IEasyHttpApiV1 {
 		mApiBaseUrl = "http://" + domain;
 		mAuthScope = new AuthScope(domain, 80);
 		mHttpApi = new HttpApiWithBasicAuth(mHttpClient, null);
+
 	}
 
 	// 登陆验证
@@ -112,26 +113,42 @@ public class IEasyHttpApiV1 {
 		return mHttpApi.doHttpPost(url, namevalues);
 	}
 
-	/** 发送 */
-	public String sendLive(String url, String appkey, String sign,
-			String timestamp, String ver, String account, String sender,
-			String receiver, String title, String message, String memo)
+
+	/** 消单 */
+	public String closeJob(String url, String appkey, String sign,
+						   String timestamp, String ver, String account, String jobId,
+						   String troubleReason, String dealResult, String dealMethod)
 			throws NumberFormatException, IOException,
 			IEasyCredentialsException, IEasyParseException, IEasyException {
-		Log.i(TAG, "sendLive () url = " + url);
+		Log.i(TAG, "closeJob 请求中:" + url);
 		NameValuePair[] namevalues = {
 				new BasicNameValuePair("appkey", appkey),
 				new BasicNameValuePair("sign", sign),
 				new BasicNameValuePair("timestamp", timestamp),
 				new BasicNameValuePair("ver", ver),
 				new BasicNameValuePair("account", account),
-				new BasicNameValuePair("sender", sender),
-				new BasicNameValuePair("receiver", receiver),
-				new BasicNameValuePair("title", title),
-				new BasicNameValuePair("message", message),
-				new BasicNameValuePair("memo", memo) };
+				new BasicNameValuePair("jobId", jobId),
+				new BasicNameValuePair("troubleReason", troubleReason),
+				new BasicNameValuePair("dealResult", dealResult),
+				new BasicNameValuePair("dealMethod", dealMethod), };
 		return mHttpApi.doHttpPost(url, namevalues);
 	}
+	/** 维护单响应*/
+	public String response(String url, String sign, String appkey,
+						   String timestamp, String ver, String account, String jobId)
+			throws NumberFormatException, IOException,
+			IEasyCredentialsException, IEasyParseException, IEasyException {
+		Log.i(TAG, "response 请求中:" + url);
+		NameValuePair[] namevalues = { new BasicNameValuePair("sign", sign),
+				new BasicNameValuePair("appkey", appkey),
+				new BasicNameValuePair("timestamp", timestamp),
+				new BasicNameValuePair("ver", ver),
+				new BasicNameValuePair("account", account),
+				new BasicNameValuePair("jobId", jobId), };
+		return mHttpApi.doHttpPost(url, namevalues);
+	}
+
+
 
 	/** 获取维护单列表 */
 	public String getMainList(String url, String sign, String appkey,
@@ -199,54 +216,7 @@ public class IEasyHttpApiV1 {
 		return mHttpApi.doHttpPost(url, namevalues);
 	}
 
-	/** */
-	public String response(String url, String sign, String appkey,
-			String timestamp, String ver, String account, String jobId)
-			throws NumberFormatException, IOException,
-			IEasyCredentialsException, IEasyParseException, IEasyException {
-		Log.i(TAG, "response 请求中:" + url);
-		NameValuePair[] namevalues = { new BasicNameValuePair("sign", sign),
-				new BasicNameValuePair("appkey", appkey),
-				new BasicNameValuePair("timestamp", timestamp),
-				new BasicNameValuePair("ver", ver),
-				new BasicNameValuePair("account", account),
-				new BasicNameValuePair("jobId", jobId), };
-		return mHttpApi.doHttpPost(url, namevalues);
-	}
 
-	/** 获取新建信息 */
-	public String getmtMsg(String url, String sign, String appkey,
-			String timestamp, String ver, String account)
-			throws NumberFormatException, IOException,
-			IEasyCredentialsException, IEasyParseException, IEasyException {
-		Log.i(TAG, "getmtMsg 请求中:" + url);
-		NameValuePair[] namevalues = { new BasicNameValuePair("sign", sign),
-				new BasicNameValuePair("appkey", appkey),
-				new BasicNameValuePair("timestamp", timestamp),
-				new BasicNameValuePair("ver", ver),
-				new BasicNameValuePair("account", account), };
-		return mHttpApi.doHttpPost(url, namevalues);
-	}
-
-	/** 获取新建信息 */
-	public String closeJob(String url, String appkey, String sign,
-			String timestamp, String ver, String account, String jobId,
-			String troubleReason, String dealResult, String dealMethod)
-			throws NumberFormatException, IOException,
-			IEasyCredentialsException, IEasyParseException, IEasyException {
-		Log.i(TAG, "closeJob 请求中:" + url);
-		NameValuePair[] namevalues = {
-				new BasicNameValuePair("appkey", appkey),
-				new BasicNameValuePair("sign", sign),
-				new BasicNameValuePair("timestamp", timestamp),
-				new BasicNameValuePair("ver", ver),
-				new BasicNameValuePair("account", account),
-				new BasicNameValuePair("jobId", jobId),
-				new BasicNameValuePair("troubleReason", troubleReason),
-				new BasicNameValuePair("dealResult", dealResult),
-				new BasicNameValuePair("dealMethod", dealMethod), };
-		return mHttpApi.doHttpPost(url, namevalues);
-	}
 
 	/** 注销 */
 	public String cancel(String url, String appkey, String sign,
@@ -383,54 +353,7 @@ public class IEasyHttpApiV1 {
 		return mHttpApi.doHttpPost(url, namevalues);
 	}
 
-	/** 图片列表接口 */
-	public String getPicList(String url, String appkey, String sign,
-			String timestamp, String ver, String account, String building,
-			String pageNo) throws NumberFormatException, IOException,
-			IEasyCredentialsException, IEasyParseException, IEasyException {
-		Log.i(TAG, "getPicList 请求中:" + url);
-		NameValuePair[] namevalues = {
-				new BasicNameValuePair("appkey", appkey),
-				new BasicNameValuePair("sign", sign),
-				new BasicNameValuePair("timestamp", timestamp),
-				new BasicNameValuePair("ver", ver),
-				new BasicNameValuePair("account", account),
-				new BasicNameValuePair("building", building),
-				new BasicNameValuePair("pageNo", pageNo) };
-		return mHttpApi.doHttpPost(url, namevalues);
-	}
 
-	/** 图片明细 接口 */
-	public String getPicDetails(String url, String appkey, String sign,
-			String timestamp, String ver, String account, String picId)
-			throws NumberFormatException, IOException,
-			IEasyCredentialsException, IEasyParseException, IEasyException {
-		Log.i(TAG, "getPicDetails 请求中:" + url);
-		NameValuePair[] namevalues = {
-				new BasicNameValuePair("appkey", appkey),
-				new BasicNameValuePair("sign", sign),
-				new BasicNameValuePair("timestamp", timestamp),
-				new BasicNameValuePair("ver", ver),
-				new BasicNameValuePair("account", account),
-				new BasicNameValuePair("picId", picId) };
-		return mHttpApi.doHttpPost(url, namevalues);
-	}
-
-	/** 信息明细接口 */
-	public String getMsgDetails(String url, String appkey, String sign,
-			String timestamp, String ver, String account, String msgId)
-			throws NumberFormatException, IOException,
-			IEasyCredentialsException, IEasyParseException, IEasyException {
-		Log.i(TAG, "getMsgDetails 请求中:" + url);
-		NameValuePair[] namevalues = {
-				new BasicNameValuePair("appkey", appkey),
-				new BasicNameValuePair("sign", sign),
-				new BasicNameValuePair("timestamp", timestamp),
-				new BasicNameValuePair("ver", ver),
-				new BasicNameValuePair("account", account),
-				new BasicNameValuePair("msgId", msgId) };
-		return mHttpApi.doHttpPost(url, namevalues);
-	}
 
 	/** 用户列表 */
 	public String getUserList(String url, String appkey, String sign,

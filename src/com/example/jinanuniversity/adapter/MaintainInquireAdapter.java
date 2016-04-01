@@ -5,8 +5,6 @@ import java.util.Map;
 
 import com.example.jinanuniversity.R;
 import com.example.jinanuniversity.Activity.Main_inquire_detail;
-import com.example.jinanuniversity.Activity.MessageReply;
-
 import android.R.integer;
 import android.content.Context;
 import android.content.Intent;

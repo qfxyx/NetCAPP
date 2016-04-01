@@ -105,8 +105,7 @@ public class UserActivity extends Activity implements OnClickListener {
 		//ruleListJson.setUserIdSelect("yes");
 
 		et_number.setText("");
-		//test
-		ed_psw.setText("201310");
+		ed_psw.setText("");
 	}
 
 	/** 加载列表数据 */

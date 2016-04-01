@@ -10,6 +10,7 @@ import org.jsoup.Connection.Method;
 import org.jsoup.Connection.Response;
 import org.jsoup.nodes.Document;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +39,7 @@ import com.example.jinanuniversity.util.ActivityCollector;
 import com.example.jinanuniversity.util.IEasy;
 import com.example.jinanuniversity.util.IEasyHttpApiV1;
 
-public class LandingActivity extends BoBaseActivity implements OnClickListener {
+public class LandingActivity extends Activity implements OnClickListener {
 	
 	private static final String TAG = "Activity.LandingActivity";
 	
@@ -125,8 +126,8 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 			paramsManager.setStorePassword(password);
 			password = ParamsManager.enCode(ParamsManager.getMd5sign(password));
 			sign = ParamsManager.getMd5sign(Config.SECRET + Config.APPKEY + timestamp + Config.VER + account + password);
-			IEasyHttpApiV1 httApi = new IEasyHttpApiV1();
-			IEasy ieasy = new IEasy(httApi);
+			IEasyHttpApiV1 httpApi = new IEasyHttpApiV1();
+			IEasy ieasy = new IEasy(httpApi);
 			guestInfo = ieasy.invitationCodeLogin(Config.APPKEY, timestamp, sign, Config.VER, account, password);
 			Log.i(TAG,guestInfo);
 			Log.i(TAG, "login doInBackground end");
@@ -311,7 +312,6 @@ public class LandingActivity extends BoBaseActivity implements OnClickListener {
 			try {
 				CheckNetworkConnect checkNetworkConnect = new CheckNetworkConnect();
 				checkNetworkConnect.execute();
-				// 这一步是为了使认证网络连接和认证网络连接的过程具有先后顺序
 				checkNetworkConnect.get();
 			} catch (InterruptedException e) {
 				e.printStackTrace();

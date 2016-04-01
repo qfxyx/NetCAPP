@@ -41,12 +41,7 @@ import com.example.jinanuniversity.data.PreferencesHelper;
 import com.example.jinanuniversity.util.IEasy;
 import com.example.jinanuniversity.util.IEasyHttpApiV1;
 
-/**
- * 日志认证
- * 
- * @author luxun
- * 
- */
+
 public class DailyRecordActivity extends Activity implements OnClickListener {
 
 	private static final String TAG = "Activity.DailyRecordActivity";
@@ -296,7 +291,7 @@ public class DailyRecordActivity extends Activity implements OnClickListener {
 		return null;
 	}
 
-	@SuppressWarnings("deprecation")
+	// @SuppressWarnings("deprecation")
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {

@@ -34,26 +34,7 @@ public class IEasy {
 		return flag;
 	}
 
-	/** 获取信息 */
-	public String getMessage(String appkey, String sign, String timestamp,
-			String ver, String account, String pageNo) {
-		String url = config.GETMESSAGE;
-		String flag = "noEffect";
-		try {
-			flag = mIEasyV1.getMessage(url, appkey, sign, timestamp, ver,
-					account, pageNo);
-			return flag;
-		} catch (IEasyCredentialsException e) {
-			e.printStackTrace();
-		} catch (IEasyParseException e) {
-			e.printStackTrace();
-		} catch (IEasyException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
+
 
 	/** 用户SAM3认证日志 */
 	public String getsam3LogList(String appkey, String sign, String timestamp,
@@ -98,27 +79,7 @@ public class IEasy {
 		return flag;
 	}
 
-	/** 发送 */
-	public String sendLive(String sign, String timestamp, String account,
-			String sender, String receiver, String title, String message,
-			String memo) {
-		String url = config.SEND;
-		String flag = "noEffect";
-		try {
-			flag = mIEasyV1
-					.sendLive(url, Config.APPKEY, sign, timestamp, Config.VER,
-							account, sender, receiver, title, message, memo);
-		} catch (IEasyCredentialsException e) {
-			e.printStackTrace();
-		} catch (IEasyParseException e) {
-			e.printStackTrace();
-		} catch (IEasyException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
+
 
 	/** 获取维护单列表 */
 	public String getMainList(String sign, String appkey, String timestamp,
@@ -202,25 +163,6 @@ public class IEasy {
 		return flag;
 	}
 
-	/** 获取新建信息 */
-	public String getmtMsg(String sign, String appkey, String timestamp,
-			String ver, String account) {
-		String url = config.NEWMSG;
-		String flag = "noEffect";
-		try {
-			flag = mIEasyV1
-					.getmtMsg(url, sign, appkey, timestamp, ver, account);
-		} catch (IEasyCredentialsException e) {
-			e.printStackTrace();
-		} catch (IEasyParseException e) {
-			e.printStackTrace();
-		} catch (IEasyException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
 
 	/** 维护单消单 */
 	public String closeJob(String appkey, String sign, String timestamp,
@@ -383,7 +325,7 @@ public class IEasy {
 		}
 		return flag;
 	}
-    //v2版本新增的密码重置接口
+    //新增的密码重置接口
 	public String resetPwd(String url, String appkey, String sign, String timestamp, String version,
 						   String account, String userId, String New_pwd) {
 		String flag = "noEffect";
@@ -445,70 +387,5 @@ public class IEasy {
 		}
 		return flag;
 	}
-	
-	/**
-	 * 图片列表
-	 */
-	public String getPicList(String sign, String timestamp, String account,
-			String building, String pageNo) {
-		String url = config.GETPICLIST;
-		String flag = "noEffect";
-		try {
-			flag = mIEasyV1.getPicList(url, Config.APPKEY, sign, timestamp,
-					Config.VER, account, building, pageNo);
-		} catch (IEasyCredentialsException e) {
-			e.printStackTrace();
-		} catch (IEasyParseException e) {
-			e.printStackTrace();
-		} catch (IEasyException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
-	
-	/**
-	 * 图片明细
-	 */
-	public String getPicDetails(String sign, String timestamp, String account,
-			String picId ) {
-		String url = config.GETPICDETAILS;
-		String flag = "noEffect";
-		try {
-			flag = mIEasyV1.getPicDetails(url, Config.APPKEY, sign, timestamp,
-					Config.VER, account, picId);
-		} catch (IEasyCredentialsException e) {
-			e.printStackTrace();
-		} catch (IEasyParseException e) {
-			e.printStackTrace();
-		} catch (IEasyException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
-	
-	/**
-	 * 信息明细
-	 */
-	public String getMsgDetails(String sign, String timestamp, String account,
-			String msgId ) {
-		String url = config.MTMSGDETAILS;
-		String flag = "noEffect";
-		try {
-			flag = mIEasyV1.getMsgDetails(url, Config.APPKEY, sign, timestamp,
-					Config.VER, account, msgId);
-		} catch (IEasyCredentialsException e) {
-			e.printStackTrace();
-		} catch (IEasyParseException e) {
-			e.printStackTrace();
-		} catch (IEasyException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return flag;
-	}
+
 }
